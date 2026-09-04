@@ -1,0 +1,18 @@
+# Raw source photos — only the optimized copies already placed in assets/
+# get published. Keep pulling from this folder locally, just don't commit it.
+Image assets/
+Logo1.png
+
+# Internal business/strategy notes — not part of the public site.
+# Remove this line if you'd rather have it version-controlled too.
+businessPlan.md
+
+# Scratch copy used for hand-editing drafts — merged into the real
+# index.html/styles.css by hand, not meant to be committed itself.
+Website redesign input/
+Website redesign input.zip
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/

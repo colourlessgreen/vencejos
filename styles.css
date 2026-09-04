@@ -1,0 +1,468 @@
+:root {
+  /* Dark theme: page background is the darkest teal, section-alt is a
+     mid teal panel, and text runs light-on-dark throughout. */
+  --ink: #f3f7f3;        /* primary text (was the light "paper" value) */
+  --ink-soft: #c9d8d2;    /* muted/secondary text — a new tone, not a literal
+                             reuse of the old paper-alt, since paper and
+                             paper-alt were too close in lightness to work
+                             as a text pair (not enough contrast between
+                             body text and muted text) */
+  --paper: #1f2e2b;       /* page background (was the dark "ink" value) */
+  --paper-alt: #4a5c56;   /* alternating section background */
+  --line: rgba(255, 255, 255, 0.14);
+  --accent: #3f6f66;
+  --accent-dark: #2a4640;
+  --accent-soft: #d8e8de;
+  --max: 1080px;
+  --radius: 6px;
+  font-size: 17px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.55;
+}
+
+h1, h2, h3 {
+  font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+h3 { font-size: 1.25rem; margin-bottom: 0.35em; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--accent-soft); }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-mark {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.brand-name {
+  font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-nav a:hover { color: var(--ink); }
+
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+.nav-cta:hover { background: var(--accent-dark); }
+
+/* Hero */
+
+.hero {
+  padding: 110px 0 90px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--paper);
+}
+
+.hero-inner { max-width: 760px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f0d9c4;
+  margin-bottom: 14px;
+}
+
+.hero h1 { color: #fff; }
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: #f1efe8;
+  max-width: 640px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 28px 0 20px;
+}
+
+.hero-note {
+  font-size: 0.92rem;
+  color: #d9d4c6;
+}
+
+/* Who it's for */
+
+.who-its-for-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.who-its-for-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* About */
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 900px;
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+/* Trailer image — full-width scene-setting banner between About and the brand frame */
+
+.trailer {
+  width: 100%;
+  height: 760px;
+  overflow: hidden;
+}
+
+.trailer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .trailer { height: 480px; }
+}
+
+/* Brand frame — the illustrated swift/Alhambra-tile poster used as a
+   literal picture frame, with a short line of copy sitting inside its
+   blank inner panel. The inset percentages below are an eyeballed match
+   to the poster's border thickness — nudge them if the text doesn't
+   land inside the blank area cleanly at your screen size. */
+
+.brand-frame {
+  padding: 56px 0;
+}
+
+.brand-frame-panel {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 362 / 900;
+  background-image: url('assets/brand-frame-blue.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.brand-frame-text {
+  position: absolute;
+  top: 17%;
+  bottom: 17%;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.brand-frame-text p {
+  font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+  letter-spacing: 0.01em;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f5c50;
+  margin: 0;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-ghost {
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-ghost:hover { border-color: var(--ink-soft); }
+
+.btn-outline {
+  color: var(--accent-soft);
+  border-color: var(--accent);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Sections */
+
+.section {
+  padding: 64px 0;
+}
+
+.section-alt {
+  background: var(--paper-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 700px;
+}
+
+.about-inner .lede { max-width: 760px; }
+
+/* Tiers */
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.tier {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.tier-badge {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin: 0 0 12px;
+  width: fit-content;
+}
+
+.tier-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+  margin: 0 0 12px;
+}
+
+.tier-price span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.tier-desc {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.tier ul {
+  padding-left: 20px;
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.tier li { margin-bottom: 6px; }
+
+.tier .btn { margin-top: auto; text-align: center; }
+
+/* Contact / form */
+
+.contact-inner { max-width: 640px; }
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.lead-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.lead-form input,
+.lead-form select,
+.lead-form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 11px 12px;
+  border: 1px solid #c9d5d0;
+  border-radius: var(--radius);
+  background: #fff;
+  color: #1f2e2b;
+}
+
+.lead-form button {
+  margin-top: 22px;
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Testimonial (kept ready for when activated) */
+
+.testimonial {
+  font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+  letter-spacing: 0.01em;
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.testimonial cite {
+  display: block;
+  margin-top: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: var(--ink-soft);
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.footer-inner a {
+  color: var(--ink-soft);
+}
+
+/* Responsive */
+
+@media (max-width: 860px) {
+  .tiers {
+    grid-template-columns: 1fr;
+  }
+  .site-nav {
+    gap: 14px;
+    font-size: 0.85rem;
+  }
+  .hero { padding: 56px 0 40px; }
+  .section { padding: 48px 0; }
+}
