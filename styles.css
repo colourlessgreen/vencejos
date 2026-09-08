@@ -157,6 +157,14 @@ a { color: var(--accent-soft); }
 
 .hero-inner { max-width: 760px; }
 
+.hero-logo {
+  display: block;
+  height: 76px;
+  width: auto;
+  margin: 0 0 20px;
+  border-radius: 6px;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
