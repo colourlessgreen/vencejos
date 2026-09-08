@@ -155,14 +155,27 @@ a { color: var(--accent-soft); }
   background-color: var(--paper);
 }
 
-.hero-inner { max-width: 760px; }
+.hero-inner {
+  max-width: 760px;
+  display: flow-root; /* clearfix so the section contains the floated logo */
+}
 
 .hero-logo {
-  display: block;
-  height: 76px;
-  width: auto;
-  margin: 0 0 20px;
+  float: left;
+  width: 400px;
+  max-width: 60%;
+  height: auto;
+  margin: 4px 28px 20px 0;
   border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .hero-logo {
+    float: none;
+    width: 200px;
+    max-width: 70%;
+    margin: 0 0 16px;
+  }
 }
 
 .eyebrow {
