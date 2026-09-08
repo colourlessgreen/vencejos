@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages — GTFO: Granada Transition for Outsiders</title>
+<meta name="description" content="Pick a GTFO package — Strategy Call, Soft Landing, or Full Integration Concierge — and pay securely by Wise, or tell us about your move first.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html#top">
+      <img src="assets/GTFOLogodk.png" alt="GTFO — Granada Transition for Outsiders" class="brand-mark">
+      <span class="brand-name">GTFO</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="packages.html">Packages</a>
+      <a href="index.html#about">About</a>
+      <a href="https://calendly.com/vencejos" class="nav-cta" target="_blank" rel="noopener">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="section packages-hero">
+    <div class="wrap">
+      <p class="eyebrow">Go. Transition. Flourish. Overseas.</p>
+      <h1>Pick your package.</h1>
+      <p class="hero-sub">Pay securely by Wise to lock in your spot, or fill out the form below first if you want to talk it through before you commit.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="packages">
+    <div class="wrap">
+      <div class="tiers" id="pricing">
+
+        <article class="tier" data-package="Strategy Call">
+          <h3>The Strategy Call</h3>
+          <p class="tier-price">€<span style="text-decoration: line-through;">100</span> 25 <span>/ 60 minutes</span></p>
+          <p class="tier-desc">A conversation before you commit to anything. Who you are. What you need help with. Am I the right guide for you? Why you're looking to GTFO, what the real cost of living is, and a plan of attack.</p>
+          <ul>
+            <li>Live Q&amp;A on costs, taxes, and bureaucracy</li>
+            <li>Neighborhood guidance based on your actual priorities</li>
+            <li>Referrals to vetted professionals (gestores, lawyers, agents)</li>
+          </ul>
+          <div class="tier-actions">
+            <a href="https://wise.com/pay/r/h5ri1hCE0yrgtA0" class="btn btn-primary" target="_blank" rel="noopener">Pay €25 via Wise</a>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Strategy Call">Tell me more first</button>
+          </div>
+        </article>
+
+        <article class="tier tier-featured" data-package="Soft Landing">
+          <p class="tier-badge">Most requested</p>
+          <h3>Soft Landing &amp; Orientation</h3>
+          <p class="tier-price">€650</p>
+          <p class="tier-desc">I meet you on the ground. We tour neighborhoods together, vet housing before you sign anything, and I stay reachable through your first disorienting weeks. BTW: the hotel's on you, but I'll pick up the train cost.</p>
+          <ul>
+            <li>In-person neighborhood tours</li>
+            <li>Housing vetting before you commit</li>
+            <li>14 days of direct chat/call support on arrival</li>
+            <li>Introductions to local contacts</li>
+          </ul>
+          <div class="tier-actions">
+            <!-- Replace with your real Wise payment link for the €650 package -->
+            <a href="https://wise.com/pay/me/REPLACE-SOFT-LANDING" class="btn btn-primary" target="_blank" rel="noopener">Pay €650 via Wise</a>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Soft Landing">Tell me more first</button>
+          </div>
+        </article>
+
+        <article class="tier" data-package="Full Concierge">
+          <h3>Full Integration Concierge</h3>
+          <p class="tier-price">€1,600</p>
+          <p class="tier-desc">The full handoff. Thirty days of hands-on support plus a running start on an actual social life — not just an apartment.</p>
+          <ul>
+            <li>Everything in Soft Landing &amp; Orientation</li>
+            <li>30 days of ongoing, on-call support</li>
+            <li>Cultural onboarding and language connections</li>
+            <li>Monthly group dinners for three months (I cook Asian food at my house, or we go out to a spot in Granada)</li>
+          </ul>
+          <div class="tier-actions">
+            <!-- Replace with your real Wise payment link for the €1,600 package -->
+            <a href="https://wise.com/pay/me/REPLACE-FULL-CONCIERGE" class="btn btn-primary" target="_blank" rel="noopener">Pay €1,600 via Wise</a>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Full Concierge">Tell me more first</button>
+          </div>
+        </article>
+
+      </div>
+      <p class="wise-note">Payments are handled by Wise — you'll get a receipt from Wise directly, and I'll follow up by email once it clears to get you booked in.</p>
+    </div>
+  </section>
+
+  <section class="section" id="intake">
+    <div class="wrap contact-inner">
+      <h2>Not ready to pay yet? Tell me about your move.</h2>
+      <p class="lede">Fill this out and I'll follow up directly — no payment required. If you picked a package above, it's already selected below; change it any time.</p>
+
+      <form name="packages-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="lead-form" id="intake-form">
+        <input type="hidden" name="form-name" value="packages-lead">
+        <p class="hp-field"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="city">Where are you thinking of moving?</label>
+        <input type="text" id="city" name="city" placeholder="e.g. Madrid, Valencia, not sure yet">
+
+        <fieldset class="package-choice">
+          <legend>Which package are you interested in?</legend>
+          <label class="radio-label"><input type="radio" name="package" value="Strategy Call" checked> Strategy Call — €25</label>
+          <label class="radio-label"><input type="radio" name="package" value="Soft Landing"> Soft Landing &amp; Orientation — €650</label>
+          <label class="radio-label"><input type="radio" name="package" value="Full Concierge"> Full Integration Concierge — €1,600</label>
+          <label class="radio-label"><input type="radio" name="package" value="Not sure yet"> Not sure yet</label>
+        </fieldset>
+
+        <label for="timeline">Rough timeline</label>
+        <select id="timeline" name="timeline">
+          <option value="just exploring">Just exploring</option>
+          <option value="within a year">Moving within a year</option>
+          <option value="within 3 months">Moving within 3 months</option>
+          <option value="already there">Already in Spain</option>
+        </select>
+
+        <label for="budget">Budget range</label>
+        <select id="budget" name="budget">
+          <option value="under 1k">Under €1k</option>
+          <option value="1k-5k">€1k–5k</option>
+          <option value="5k-15k">€5k–15k</option>
+          <option value="15k+">€15k+</option>
+          <option value="prefer not to say">Prefer not to say</option>
+        </select>
+
+        <label for="message">Anything specific I should know?</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit" class="btn btn-primary">Send it</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>GTFO — Granada Transition for Outsiders · Granada, Spain</p>
+    <p><a href="mailto:cedric@colourlessgreen.com">cedric@colourlessgreen.com</a></p>
+  </div>
+</footer>
+
+<script>
+  // "Tell me more first" buttons: select the matching radio in the intake
+  // form and scroll down to it, so the visitor doesn't have to re-pick.
+  document.querySelectorAll('.choose-package').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pkg = btn.getAttribute('data-package');
+      var radio = document.querySelector('input[name="package"][value="' + pkg + '"]');
+      if (radio) radio.checked = true;
+      document.getElementById('intake').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>

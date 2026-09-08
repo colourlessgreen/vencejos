@@ -23,11 +23,41 @@
 html { scroll-behavior: smooth; }
 
 body {
+  position: relative;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.55;
+}
+
+/* Whole-page watermark — fixed behind all content, only visible where a
+   section doesn't set its own background color. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('assets/GTFO Background.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 620px auto;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  body::before {
+    background-size: 320px auto;
+    opacity: 0.09;
+  }
 }
 
 h1, h2, h3 {
@@ -80,9 +110,10 @@ a { color: var(--accent-soft); }
 }
 
 .brand-mark {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
+  border-radius: 4px;
 }
 
 .brand-name {
@@ -158,34 +189,34 @@ a { color: var(--accent-soft); }
 /* Who it's for */
 
 .who-its-for-inner {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 40px;
-  align-items: center;
+  display: flow-root; /* clearfix so the section contains the floated image */
 }
 
 .who-its-for-img {
-  width: 100%;
+  float: right;
+  width: 380px;
+  max-width: 45%;
   height: 320px;
   object-fit: cover;
   border-radius: var(--radius);
+  margin: 6px 0 20px 32px;
 }
 
 /* About */
 
 .about-inner {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 40px;
-  align-items: start;
+  display: flow-root; /* clearfix so the section contains the floated image */
   max-width: 900px;
 }
 
 .about-photo {
-  width: 100%;
+  float: left;
+  width: 280px;
+  max-width: 45%;
   border-radius: var(--radius);
   object-fit: cover;
   aspect-ratio: 4 / 5;
+  margin: 6px 32px 20px 0;
 }
 
 /* Trailer image — full-width scene-setting banner between About and the brand frame */
@@ -215,27 +246,29 @@ a { color: var(--accent-soft); }
    land inside the blank area cleanly at your screen size. */
 
 .brand-frame {
-  padding: 56px 0;
+  padding: 16px 0 0;
 }
 
 .brand-frame-panel {
   position: relative;
   width: 100%;
-  max-width: 360px;
+  max-width: 300px;
   margin: 0 auto;
-  aspect-ratio: 362 / 900;
-  background-image: url('assets/brand-frame-blue.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+}
+
+.brand-frame-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
 }
 
 .brand-frame-text {
   position: absolute;
-  top: 17%;
-  bottom: 17%;
-  left: 10%;
-  right: 10%;
+  top: 19%;
+  bottom: 14.5%;
+  left: 23%;
+  right: 22%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -304,7 +337,13 @@ a { color: var(--accent-soft); }
   max-width: 700px;
 }
 
-.about-inner .lede { max-width: 760px; }
+.about-inner .lede { max-width: none; }
+
+.aside {
+  font-size: 0.78em;
+  color: var(--ink-soft);
+  font-style: italic;
+}
 
 /* Tiers */
 
@@ -437,7 +476,8 @@ a { color: var(--accent-soft); }
 
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 32px 0;
+  padding: 20px 0;
+  margin-top: 24px;
 }
 
 .footer-inner {
@@ -453,6 +493,70 @@ a { color: var(--accent-soft); }
   color: var(--ink-soft);
 }
 
+/* Packages page */
+
+.packages-hero {
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.packages-hero .hero-sub {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+}
+
+.packages-hero .eyebrow {
+  text-align: center;
+}
+
+.tier-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tier-actions .btn { width: 100%; text-align: center; }
+
+.tier-actions .btn-ghost {
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.wise-note {
+  margin: 28px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.package-choice {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 18px 0 4px;
+}
+
+.package-choice legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0 6px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 8px 0 0 !important;
+  color: var(--ink);
+}
+
+.radio-label input { width: auto; }
+
 /* Responsive */
 
 @media (max-width: 860px) {
@@ -465,4 +569,14 @@ a { color: var(--accent-soft); }
   }
   .hero { padding: 56px 0 40px; }
   .section { padding: 48px 0; }
+}
+
+@media (max-width: 640px) {
+  .who-its-for-img,
+  .about-photo {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
+  }
 }
