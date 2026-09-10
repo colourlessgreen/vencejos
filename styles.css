@@ -95,22 +95,24 @@ a { color: var(--accent-soft); }
 
 .header-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  gap: 10px;
+  padding-top: 18px;
+  padding-bottom: 14px;
 }
 
 .brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   text-decoration: none;
   color: var(--ink);
 }
 
 .brand-mark {
-  height: 40px;
+  height: 64px;
   width: auto;
   display: block;
   border-radius: 4px;
@@ -157,24 +159,21 @@ a { color: var(--accent-soft); }
 
 .hero-inner {
   max-width: 760px;
-  display: flow-root; /* clearfix so the section contains the floated logo */
 }
 
 .hero-logo {
-  float: left;
-  width: 400px;
-  max-width: 60%;
+  display: block;
+  width: 220px;
+  max-width: 50%;
   height: auto;
-  margin: 4px 28px 20px 0;
+  margin: 0 auto 24px;
   border-radius: 6px;
 }
 
 @media (max-width: 640px) {
   .hero-logo {
-    float: none;
-    width: 200px;
-    max-width: 70%;
-    margin: 0 0 16px;
+    width: 160px;
+    max-width: 55%;
   }
 }
 
@@ -211,6 +210,16 @@ a { color: var(--accent-soft); }
 
 .who-its-for-inner {
   display: flow-root; /* clearfix so the section contains the floated image */
+}
+
+.who-its-for-tagline {
+  font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-soft);
+  margin-bottom: 10px;
 }
 
 .who-its-for-img {
@@ -364,6 +373,16 @@ a { color: var(--accent-soft); }
   font-size: 0.78em;
   color: var(--ink-soft);
   font-style: italic;
+}
+
+.how-it-works-cta {
+  text-align: center;
+  max-width: 560px;
+}
+
+.how-it-works-cta .lede {
+  max-width: none;
+  margin: 0 auto 24px;
 }
 
 /* Tiers */
