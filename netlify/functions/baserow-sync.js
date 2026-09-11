@@ -47,6 +47,7 @@ function buildRow(formName, data) {
   const row = {
     Name: data.name || "",
     Email: data.email || "",
+    "Phone Number": data.phone || "",
     "Destination City": data.city || "",
     Notes: data.message || "",
     "Source Form": [FORM_SOURCE_MAP[formName] || "Homepage"],

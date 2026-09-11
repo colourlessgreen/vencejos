@@ -93,6 +93,12 @@ a { color: var(--accent-soft); }
   z-index: 10;
 }
 
+/* Sections navigated to via #anchor links need breathing room above them,
+   or the sticky header covers the heading when the browser scrolls there. */
+section[id] {
+  scroll-margin-top: 150px;
+}
+
 .header-inner {
   display: flex;
   flex-direction: column;
