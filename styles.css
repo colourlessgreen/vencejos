@@ -1,14 +1,10 @@
 :root {
   /* Dark theme: page background is the darkest teal, section-alt is a
      mid teal panel, and text runs light-on-dark throughout. */
-  --ink: #f3f7f3;        /* primary text (was the light "paper" value) */
-  --ink-soft: #c9d8d2;    /* muted/secondary text — a new tone, not a literal
-                             reuse of the old paper-alt, since paper and
-                             paper-alt were too close in lightness to work
-                             as a text pair (not enough contrast between
-                             body text and muted text) */
-  --paper: #1f2e2b;       /* page background (was the dark "ink" value) */
-  --paper-alt: #4a5c56;   /* alternating section background */
+  --text: #f3f7f3;        /* primary text */
+  --text-soft: #c9d8d2;    /* muted/secondary text */
+  --bg: #1f2e2b;           /* page background, darkest teal */
+  --bg-alt: #4a5c56;       /* alternating section background */
   --line: rgba(255, 255, 255, 0.14);
   --accent: #3f6f66;
   --accent-dark: #2a4640;
@@ -25,23 +21,25 @@ html { scroll-behavior: smooth; }
 body {
   position: relative;
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.55;
 }
 
-/* Whole-page watermark — fixed behind all content, only visible where a
-   section doesn't set its own background color. */
+/* Whole-page watermark. Absolutely positioned against body (which is the
+   containing block, since it's position:relative above) rather than fixed
+   to the viewport — so it scrolls along with the page and tiles down the
+   full height of the content instead of just sitting static near the top. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url('assets/GTFO Background.png');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
-  background-size: 620px auto;
-  opacity: 0.14;
+  background-size: 900px auto;
+  opacity: 0.16;
   pointer-events: none;
   z-index: 0;
 }
@@ -55,8 +53,8 @@ main,
 
 @media (max-width: 640px) {
   body::before {
-    background-size: 320px auto;
-    opacity: 0.09;
+    background-size: 480px auto;
+    opacity: 0.1;
   }
 }
 
@@ -64,7 +62,7 @@ h1, h2, h3 {
   font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
   letter-spacing: 0.01em;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
   line-height: 1.15;
   margin: 0 0 0.5em;
 }
@@ -87,7 +85,7 @@ a { color: var(--accent-soft); }
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--bg);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -114,7 +112,7 @@ section[id] {
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .brand-mark {
@@ -139,11 +137,11 @@ section[id] {
 }
 
 .site-nav a {
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-decoration: none;
 }
 
-.site-nav a:hover { color: var(--ink); }
+.site-nav a:hover { color: var(--text); }
 
 .nav-cta {
   background: var(--accent);
@@ -160,11 +158,23 @@ section[id] {
   padding: 110px 0 90px;
   background-size: cover;
   background-position: center;
-  background-color: var(--paper);
+  background-color: var(--bg);
 }
 
 .hero-inner {
   max-width: 760px;
+}
+
+.hero-panel {
+  background: rgba(31, 46, 43, 0.7);
+  border-radius: 12px;
+  padding: 32px 40px;
+}
+
+@media (max-width: 640px) {
+  .hero-panel {
+    padding: 24px 20px;
+  }
 }
 
 .hero-logo {
@@ -339,10 +349,10 @@ section[id] {
 .btn-primary:hover { background: var(--accent-dark); }
 
 .btn-ghost {
-  color: var(--ink);
+  color: var(--text);
   border-color: var(--line);
 }
-.btn-ghost:hover { border-color: var(--ink-soft); }
+.btn-ghost:hover { border-color: var(--text-soft); }
 
 .btn-outline {
   color: var(--accent-soft);
@@ -362,14 +372,14 @@ section[id] {
 }
 
 .section-alt {
-  background: var(--paper-alt);
+  background: rgba(74, 92, 86, 0.5);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .lede {
   font-size: 1.08rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
   max-width: 700px;
 }
 
@@ -377,7 +387,7 @@ section[id] {
 
 .aside {
   font-size: 0.78em;
-  color: var(--ink-soft);
+  color: var(--text-soft);
   font-style: italic;
 }
 
@@ -401,7 +411,7 @@ section[id] {
 }
 
 .tier {
-  background: var(--paper);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px 24px;
@@ -438,18 +448,18 @@ section[id] {
 .tier-price span {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .tier-desc {
-  color: var(--ink-soft);
+  color: var(--text-soft);
   font-size: 0.97rem;
 }
 
 .tier ul {
   padding-left: 20px;
   margin: 0 0 20px;
-  color: var(--ink-soft);
+  color: var(--text-soft);
   font-size: 0.95rem;
 }
 
@@ -515,7 +525,7 @@ section[id] {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-style: normal;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Footer */
@@ -532,11 +542,11 @@ section[id] {
   flex-wrap: wrap;
   gap: 8px;
   font-size: 0.9rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .footer-inner a {
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Packages page */
@@ -549,7 +559,7 @@ section[id] {
 .packages-hero .hero-sub {
   max-width: 600px;
   margin: 0 auto;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .packages-hero .eyebrow {
@@ -574,7 +584,7 @@ section[id] {
 .wise-note {
   margin: 28px 0 0;
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-align: center;
 }
 
@@ -598,7 +608,7 @@ section[id] {
   font-size: 0.95rem;
   font-weight: 400;
   margin: 8px 0 0 !important;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .radio-label input { width: auto; }
